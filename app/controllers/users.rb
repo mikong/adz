@@ -2,7 +2,7 @@ class Users < Application
   
   def new
     only_provides :html
-    @user = User.new(params[:user] || {})
+    @user = User.new
     display @user
   end
   

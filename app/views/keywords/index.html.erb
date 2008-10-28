@@ -1,0 +1,17 @@
+<h1>Keywords</h1>
+
+<table>
+  <tr>
+    <th>Word</th>
+    <th colspan="2">Actions</th>
+  </tr>
+<% @keywords.each do |keyword| %>
+  <tr>
+    <td><%= keyword.word %></td>
+    <td><%= link_to 'Show', resource(keyword) %></td>
+    <td><%= delete_button(keyword, "Delete #{keyword.word}") %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New', resource(:keywords, :new) %>

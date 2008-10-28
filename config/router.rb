@@ -29,6 +29,10 @@ Merb.logger.info("Compiling routes...")
 Merb::Router.prepare do
   resources :users
   
+  authenticate do
+    resources :keywords
+  end
+  
   match('/signup').to(:controller => 'users', :action => 'new')
   match('/').to(:controller => 'home', :action => 'index')
   
