@@ -13,5 +13,10 @@ class User
   
   property :id,     Serial
   property :login,  String
+  property :created_at, DateTime
+  property :updated_at, DateTime
   
+  validates_length       :login,                :within => 3..40
+  validates_is_unique    :login
+  validates_length       :password,             :within => 4..40, :if => :password_required?
 end
