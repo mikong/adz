@@ -16,6 +16,8 @@ class User
   property :created_at, DateTime
   property :updated_at, DateTime
   
+  has n, :ads
+  
   validates_length       :login,                :within => 3..40
   validates_is_unique    :login
   validates_length       :password,             :within => 4..40, :if => :password_required?

@@ -1,0 +1,14 @@
+<h1>Edit Ad</h1>
+
+<%= error_messages_for @ad %>
+
+<%= form_for @ad, :action => resource(@ad) do %>
+  <p>
+    <%= text_field :text, :label => "Ad Text" %>
+  </p>
+  <p>
+    <%= submit "Update" %>
+  </p>
+<% end =%>
+
+<%= link_to 'Show', resource(@ad) %> | <%= link_to 'Back', resource(:ads) %>

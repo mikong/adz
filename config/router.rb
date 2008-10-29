@@ -31,6 +31,7 @@ Merb::Router.prepare do
   
   authenticate do
     resources :keywords
+    resources :ads
   end
   
   match('/signup').to(:controller => 'users', :action => 'new')
