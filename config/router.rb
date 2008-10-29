@@ -35,6 +35,7 @@ Merb::Router.prepare do
   end
   
   match('/signup').to(:controller => 'users', :action => 'new')
+  match('/login', :method => :get).redirect('/')
   match('/').to(:controller => 'home', :action => 'index')
   
   # Adds the required routes for merb-auth using the password slice

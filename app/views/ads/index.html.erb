@@ -2,14 +2,15 @@
 
 <table>
   <tr>
-    <th>Text</th>
+    <th>Ad Text</th>
+    <th>Keywords</th>
     <th colspan="3">Actions</th>
   </tr>
   
 <% @ads.each do |ad| %>
   <tr>
-    <td><%=h ad.text %></td>
-    
+    <td class="main"><%=h ad.text %></td>
+    <td><%= ad.keywords %></td>
     <td><%= link_to 'Show', resource(ad) %></td>
     <td><%= link_to 'Edit', resource(ad, :edit) %></td>
     <td><%= delete_button(ad, "Delete") %></td>

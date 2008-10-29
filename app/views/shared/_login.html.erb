@@ -1,0 +1,13 @@
+<% if session.authenticated? %>
+
+  <%= "Hi #{session.user.login}" %> | <%= link_to "Log out", url(:logout) %>
+
+<% else %>
+
+  <%= form :action => url(:login), :method => :put do %>
+    <%= text_field :login, :label => "Login" %>
+    <%= password_field :password, :label => "Password" %>
+    <%= submit "Login" %>
+  <% end =%>
+  
+<% end %>
