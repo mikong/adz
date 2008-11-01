@@ -10,7 +10,7 @@
 <% @ads.each do |ad| %>
   <tr>
     <td class="main"><%=h ad.text %></td>
-    <td><%= ad.keywords %></td>
+    <td><%=h ad.word_list %></td>
     <td><%= link_to 'Show', resource(ad) %></td>
     <td><%= link_to 'Edit', resource(ad, :edit) %></td>
     <td><%= delete_button(ad, "Delete") %></td>
