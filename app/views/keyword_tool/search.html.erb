@@ -1,0 +1,9 @@
+<h1>Keyword: <%= params[:keyword] %></h1>
+
+<% if @keyword && @keyword.ads.count > 0 %>
+  <h3>Usage:</h3>
+  This keyword is used by <%= @keyword.ads.count %> ads.
+  <h3>Synonyms:</h3>
+<% else %>
+  This keyword is not being used by any ad.
+<% end %>

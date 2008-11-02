@@ -32,6 +32,9 @@ Merb::Router.prepare do
   authenticate do
     resources :keywords
     resources :ads
+    
+    match('/keyword_tool', :method => :get).to(:controller => 'keyword_tool', :action => 'index').name("keyword_tool")
+    match('/keyword_tool', :method => :post).to(:controller => 'keyword_tool', :action => 'search').name("search_keyword")
   end
   
   match('/signup').to(:controller => 'users', :action => 'new')
