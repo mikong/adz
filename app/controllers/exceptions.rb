@@ -10,4 +10,9 @@ class Exceptions < Merb::Controller
     render :format => :html
   end
 
+  def unauthenticated
+    message[:error] = "Login required."
+    render :template => "home/index"
+  end
+
 end
