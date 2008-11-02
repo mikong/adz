@@ -1,10 +1,3 @@
-class String
-  def ends_with?(suffix)
-    suffix = suffix.to_s
-    self[-suffix.length, suffix.length] == suffix
-  end
-end
-
 class WordList < Array
   cattr_accessor :delimiter
   self.delimiter = ','
@@ -31,7 +24,7 @@ class WordList < Array
     
     map do |word|
       word.include?(delimiter) ? "\"#{word}\"" : word
-    end.join(delimiter.ends_with?(" ") ? delimiter : "#{delimiter}")
+    end.join(delimiter.end_with?(" ") ? delimiter : "#{delimiter}")
   end
   
   private
