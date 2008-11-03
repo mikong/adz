@@ -15,10 +15,15 @@
       <div id="login">
         <%= partial 'shared/login' %>
       </div>
+      <div id="header">
+        <a id="logo" href="/" title="Grobe AdPlatform: home"></a>
+        &nbsp;
+        <%= partial 'shared/nav' %>
+      </div>
+      <hr />
       <% message.each do |key, msg| -%>
         <%= tag :div, msg, :id => "msg_#{key}", :class => key %>
       <% end -%>
-      <hr />
       <%= catch_content :for_layout %>
     </div>
   </body>

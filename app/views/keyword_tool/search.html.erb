@@ -1,12 +1,17 @@
 <h1>Keyword: <%= params[:keyword] %></h1>
 
+<h3>Usage:</h3>
+
 <% if @keyword && @keyword.ads.count > 0 %>
-  <h3>Usage:</h3>
-  This keyword is used by <%= @keyword.ads.count %> ads.
+  <p>This keyword is used by <%= @keyword.ads.count %> ads.</p>
 <% else %>
-  This keyword is not being used by any ad.
+  <p>This keyword is not being used by any ad.</p>
 <% end %>
 
 <h3>Synonyms:</h3>
 
-<%= (@synonyms.collect {|s| s.word}).uniq.join(", ") %>
+<% if @synonyms && @synonyms.size > 0 %>
+  <p><%= (@synonyms.collect {|s| s.word}).uniq.join(", ") %></p>
+<% else %>
+  <p>This word has no synonyms.</p>
+<% end %>

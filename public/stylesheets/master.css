@@ -1,6 +1,6 @@
 body {
   font-family: Arial, Verdana, sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   background-color: #fff;
 }
 * {
@@ -13,7 +13,7 @@ html {
   margin-bottom: 1px;
 }
 #container {
-  width: 80%;
+  width: 760px;
   text-align: left;
   background-color: #fff;
   margin-right: auto;
@@ -26,6 +26,17 @@ html {
 #header-container h1, #header-container h2 {
   margin-left: 6px;
   margin-bottom: 6px;
+}
+#header { margin-top: -20px; height: 140px; }
+#header a {
+	color: white;
+}
+#logo {
+	background: url(/images/Crystal_Clear_app_internet.png) no-repeat;
+	height: 128px;
+	width: 128px;
+	display: block;
+	float: left;
 }
 .spacer {
   width: 100%;
@@ -41,7 +52,7 @@ hr {
 }
 h1 {
   font-size: 30px;
-  color: blue;
+  color: #3399ff;
   background-color: #fff;
   font-family: Arial, Verdana, sans-serif;
   font-weight: 300;
@@ -55,7 +66,7 @@ h2 {
 }
 h3 {
   color: #4d9b12;
-  font-size: 15px;
+  font-size: 18px;
   text-align: left;
   font-weight: 300;
   padding: 5px;
@@ -131,8 +142,10 @@ td, th { padding: 2px 5px; }
 td.main { width: 250px; }
 
 #login {
-  margin-top: 5px;
-  padding-left: 20px;
+  margin-top: 25px;
+  margin-bottom: 5px;
+  text-align: right;
+  font-size: 13px;
 }
 
 .notice {
@@ -149,4 +162,37 @@ td.main { width: 250px; }
 	margin: 5px 0;
 	padding: 2px 0px 2px 20px;
 	width: 98%;
+}
+
+a.join, a:hover.join {
+	font-size: 15px;
+	color: #fff;
+	background-color: #4d9b12;
+	display: block;
+  width: 150px;
+  text-align: center;
+  margin: 20px auto;
+	padding: 5px;
+	border: 1px solid black;
+}
+
+#navcontainer ul {
+	padding-left: 0;
+	margin-left: 0;
+	margin-top: 99px;
+	text-align: right;
+}
+#navcontainer ul li {
+	display: inline;
+}
+#navcontainer ul li a {
+	padding: 5px 10px;
+	background-color: #3399ff;
+	text-decoration: none;
+	border-right: 2px solid gray;
+}
+#navcontainer ul li a:hover {
+	background-color: white;
+	color: black;
+	border-top: 2px solid #3399ff;
 }
