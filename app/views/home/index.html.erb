@@ -6,6 +6,10 @@
   No matter what your budget, you can reach your target crowd in our advertising network.
 </p>
 
-<div>
-<%= link_to 'Get Started - Sign up!', '/signup', { 'class' => 'join' } %>
-</div>
+<% if session.authenticated? %>
+  <p>
+  Go and <%= link_to 'create a new ad', url(:new_ad) %> or <%= link_to 'get keyword ideas', url(:keyword_tool) %>.
+  </p>
+<% else %>
+  <%= link_to 'Get Started - Sign up!', '/signup', { 'class' => 'join' } %>
+<% end %>
