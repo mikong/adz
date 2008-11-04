@@ -21,10 +21,12 @@
         <%= partial 'shared/nav' %>
       </div>
       <hr />
-      <% message.each do |key, msg| -%>
-        <%= tag :div, msg, :id => "msg_#{key}", :class => key %>
-      <% end -%>
-      <%= catch_content :for_layout %>
+      <div id="content">
+        <% message.each do |key, msg| -%>
+          <%= tag :div, msg, :id => "msg_#{key}", :class => key %>
+        <% end -%>
+        <%= catch_content :for_layout %>
+      </div>
     </div>
   </body>
 </html>

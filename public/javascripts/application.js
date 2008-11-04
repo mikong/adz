@@ -21,3 +21,18 @@ function prepare_custom_ad() {
     }
   });
 }
+
+function sms_preview_sponsor() {
+	var sponsor = $("span.sms-preview-sponsor");
+  var sponsor_input = $("#ad_sponsor");
+  var update_sponsor_func = function() {
+    if ( $(sponsor_input).val() == "") {
+      sponsor.text("<Sponsor>");
+    } else {
+      sponsor.text($(sponsor_input).val());
+    }
+  };
+  
+  update_sponsor_func();
+  sponsor_input.change(update_sponsor_func);
+}

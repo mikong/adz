@@ -1,6 +1,7 @@
 <% throw_content :javascript do %>
   $(function(){
     prepare_custom_ad();
+    sms_preview_sponsor();
   });
 <% end %>
 
@@ -11,10 +12,12 @@
 <div class="spacer"></div>
 
 <p>
-  A New Ad adds a prefix of "This message is sponsored by &lt;Sponsor&gt;:" to the sponsored SMS message.
+  SMS messages are sponsored if they have any of the Keywords specified in the form below. Then, the following will be added to the
+  start of the sponsored SMS message:
 </p>
-
-<div class="spacer"></div>
+<div class="sms-preview">
+  This message is sponsored by <span class="sms-preview-sponsor">&lt;Sponsor&gt;</span>:
+</div>
 
 <%= form_for @ad, :action => resource(:ads) do %>
   <p>
