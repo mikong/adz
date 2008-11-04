@@ -1,13 +1,21 @@
+<h1>Sign up</h1>
+
 <%= error_messages_for @user %>
+
+<div class="spacer"></div>
+
 <%= form_for @user, :action => url(:users) do %>
   <p>
-    <%= text_field :login, :label => "Login" %>
+    <label for="user_login">Login</label><br />
+    <%= text_field :login %>
   </p>
   <p>
-    <%= password_field :password, :label => "Password" %>
+    <label for="user_password">Password</label><br />
+    <%= password_field :password %>
   </p>
   <p>
-    <%= password_field :password_confirmation, :label => "Password Confirmation" %>
+    <label for="user_password_confirmation">Confirm Password</label><br />
+    <%= password_field :password_confirmation %>
   </p>
   <p>
     <%= submit "Sign up" %>

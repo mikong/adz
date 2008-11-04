@@ -1,16 +1,20 @@
 <h1>Your Ads</h1>
 
+<div class="spacer"></div>
+
 <table>
   <tr>
-    <th>Ad Text</th>
+    <th>Sponsor</th>
     <th>Keywords</th>
+    <th>Custom Ad (if any)</th>
     <th colspan="3">Actions</th>
   </tr>
   
 <% @ads.each do |ad| %>
   <tr>
-    <td class="main"><%=h ad.text %></td>
+    <td class=""><%=h ad.sponsor %></td>
     <td><%=h ad.word_list %></td>
+    <td class="main"><%=h ad.text %></td>
     <td><%= link_to 'Show', resource(ad) %></td>
     <td><%= link_to 'Edit', resource(ad, :edit) %></td>
     <td><%= delete_button(ad, "Delete") %></td>
@@ -18,4 +22,6 @@
 <% end %>
 </table>
 
-<%= link_to 'New', resource(:ads, :new) %>
+<div class="spacer"></div>
+
+<%= link_to 'New Ad', resource(:ads, :new) %>

@@ -1,17 +1,37 @@
+<% throw_content :javascript do %>
+  $(function(){
+    prepare_custom_ad();
+  });
+<% end %>
+
 <h1>Edit Ad</h1>
 
 <%= error_messages_for @ad %>
 
+<div class="spacer"></div>
+
 <%= form_for @ad, :action => resource(@ad) do %>
   <p>
-    <%= text_field :text, :label => "Ad Text" %>
+    <label for="ad_sponsor">Sponsor</label><br />
+    <%= text_field :sponsor %>
   </p>
   <p>
-    <%= text_field :word_list, :label => "Keywords" %>
+    <label for="ad_word_list">Keywords</label><br />
+    <%= text_field :word_list %>
+  </p>
+  <p>
+    <%= check_box :id => "add_custom_1", :name => "add_custom", :value => "1", :checked => (@ad.text.blank? ? nil : "checked") %>
+    <label class="checkbox" for="add_custom_1">Also send a Custom Ad in an additional SMS message.</label>
+  </p>
+  <p>
+    <label for="ad_text">Custom Ad</label><br />
+    <%= text_area :text, :cols => 40 %>
   </p>
   <p>
     <%= submit "Update" %>
   </p>
 <% end =%>
 
-<%= link_to 'Show', resource(@ad) %> | <%= link_to 'Back', resource(:ads) %>
+<div class="spacer"></div>
+
+<%= link_to 'Show', resource(@ad) %> | <%= link_to 'Back to list', resource(:ads) %>

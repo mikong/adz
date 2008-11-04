@@ -1,18 +1,20 @@
 class Ad
   include DataMapper::Resource
   
-  property :id,   Serial
-  property :text, String, :length => 140
+  property :id,      Serial
+  property :sponsor, String, :length => (0..24), :nullable => false
+  property :text,    String, :length => (0..140)
   
   belongs_to :user
   has n, :keywordings
   has n, :keywords, :through => :keywordings
   
-  validates_present :text
-  validates_length  :text, :max => 140
-  
   after :save, :save_word_list
   before :destroy, :destroy_all_keywordings
+  
+  def ad_prefix
+    "This message is sponsored by #{sponsor}: "
+  end
   
   def word_list
     @word_list || WordList.new(self.keywords.collect{|w| w.word}).to_s

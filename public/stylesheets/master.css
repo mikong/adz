@@ -58,7 +58,7 @@ h1 {
   font-weight: 300;
 }
 h2 {
-  font-size: 15px;
+  font-size: 22px;
   color: #999;
   font-family: Arial, Verdana, sans-serif;
   font-weight: 300;
@@ -132,13 +132,32 @@ a:hover {
 /* Forms */
 label {
   margin-left: 20px;
-  margin-right: 5px;
   font-weight: bold;
+  vertical-align: top;
+}
+label.checkbox {
+  margin: 0px;
+  font-weight: normal;
+}
+input {
+  margin-left: 20px;
+  font-size: 13px;
+}
+textarea {
+  margin-left: 20px;
+  font-size: 13px;
+  font-family: "Lucida Sans", Arial, Verdana, sans-serif;
+  padding-left: 2px;
 }
 
-table { border: 1px solid black;}
-th { text-align: center; background-color: lightyellow;	border: 1px solid black; }
+table { border: 1px solid black; margin-left: 20px; }
+th {
+  text-align: center;
+  background-color: lightyellow;
+  border-bottom: 2px solid gray;
+}
 td, th { padding: 2px 5px; }
+td input { margin-left: 0px; }
 td.main { width: 250px; }
 
 #login {
@@ -147,6 +166,13 @@ td.main { width: 250px; }
   text-align: right;
   font-size: 13px;
 }
+#login label {
+  margin-right: 5px;
+  vertical-align: baseline;
+}
+#login input { margin-left: 0px; }
+
+/* Messages */
 
 .notice {
   color: #fff;
@@ -156,12 +182,16 @@ td.main { width: 250px; }
   width: 98%;
 }
 
-.error {
-	color: #fff;
-	background-color: red;
-	margin: 5px 0;
-	padding: 2px 0px 2px 20px;
-	width: 98%;
+div.error {
+  color: #fff;
+  background-color: #ff3366;
+  margin: 5px 0;
+  padding: 2px 0px 2px 20px;
+  width: 98%;
+}
+.error h2 {
+  color: inherit;
+  background-color: inherit;
 }
 
 a.join, a:hover.join {

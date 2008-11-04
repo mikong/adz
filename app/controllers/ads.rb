@@ -29,7 +29,6 @@ class Ads < Application
     if @ad.save
       redirect resource(@ad), :message => {:notice => "Ad was successfully created"}
     else
-      message[:error] = "Ad failed to be created"
       render :new
     end
   end
@@ -38,7 +37,7 @@ class Ads < Application
     @ad = session.user.ads.first(:id => id)
     raise NotFound unless @ad
     if @ad.update_attributes(ad)
-      redirect resource(@ad)
+      redirect resource(@ad), :message => {:notice => "Ad was successfully updated"}
     else
       display @ad, :edit
     end

@@ -1,10 +1,9 @@
 <h1>Keyword Tool</h1>
 
+<div class="spacer"></div>
+
 <%= form :action => url(:search_keyword) do %>
   <p>
-    <%= text_field :keyword %>
-  </p>
-  <p>
-    <%= submit 'Search Keyword' %>
+    <%= text_field :keyword %><%= submit 'Search Keyword' %>
   </p>
 <% end =%>

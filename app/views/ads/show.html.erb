@@ -1,13 +1,23 @@
 <h1>Ad</h1>
 
+<div class="spacer"></div>
+
 <p>
-  <b>Ad Text:</b>
-  <%=h @ad.text %>
+  Sponsor: <b><%=h @ad.sponsor %></b>
 </p>
 
 <p>
-  <b>Keywords:</b>
-  <%=h @ad.word_list %>
+  Keywords: <b><%=h @ad.word_list %></b>
 </p>
 
-<%= link_to 'Back', resource(:ads) %>
+<p>
+  <% if @ad.text.blank? %>
+  No Custom Ad.
+  <% else %>
+  Custom Ad: <b><%=h @ad.text %></b>
+  <% end %>
+</p>
+
+<div class="spacer"></div>
+
+<%= link_to 'Edit', url(:edit_ad, @ad) %> | <%= link_to 'Back to list', url(:ads) %>
