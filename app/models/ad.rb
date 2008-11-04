@@ -30,7 +30,7 @@ class Ad
       destroy_all_keywordings unless self.new_record?
       
       @word_list.each do |word|
-        keyword = Keyword.find_or_create(word)
+        keyword = Keyword.first_or_create(:word => word)
         Keywording.create(:keyword_id => keyword.id, :ad_id => self.id)
       end
       @word_list = nil

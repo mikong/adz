@@ -10,9 +10,4 @@ class Keyword
   validates_present :word
   validates_length  :word, :within => 3..30
   validates_is_unique :word
-  
-  def self.find_or_create(keyword)
-    first(:word => keyword) || create(:word => keyword)
-  end
-  
 end
