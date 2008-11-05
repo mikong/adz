@@ -3,6 +3,7 @@
 require 'config/dependencies.rb'
 
 dependency "facets", "2.4.5"
+dependency "hpricot"
 Merb.push_path(:lib, Merb.root / "lib")
 
 use_orm :datamapper

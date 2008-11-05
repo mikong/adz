@@ -2,7 +2,7 @@ class Keyword
   include DataMapper::Resource
   
   property :id,   Serial
-  property :word, String, :length => 30
+  property :word, String, :length => 30, :unique_index => true
 
   has n, :keywordings
   has n, :ads, :through => :keywordings
