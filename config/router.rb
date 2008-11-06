@@ -35,6 +35,9 @@ Merb::Router.prepare do
     
     match('/keyword_tool', :method => :get).to(:controller => 'keyword_tool', :action => 'index').name("keyword_tool")
     match('/keyword_tool', :method => :post).to(:controller => 'keyword_tool', :action => 'search').name("search_keyword")
+    
+    match('/settings', :method => :get).to(:controller => 'users', :action => 'edit').name("settings")
+    match('/settings', :method => :put).to(:controller => 'users', :action => 'update')
   end
   
   match('/signup').to(:controller => 'users', :action => 'new')

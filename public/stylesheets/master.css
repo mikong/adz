@@ -238,3 +238,13 @@ div.sms-preview {
 	text-align: center;
 	margin: 15px auto;
 }
+
+input.money {
+	width: 80px;
+	text-align: right;
+}
+
+span.tip {
+  font-size: 13px;
+  color: gray;
+}

@@ -1,0 +1,15 @@
+<h1>Settings</h1>
+
+<%= error_messages_for @user %>
+
+<div class="spacer"></div>
+
+<%= form_for @user, :action => url(:settings) do %>
+  <p>
+    <label for="user_budget">Budget</label> <span class="tip">(in Philippine Pesos)</span><br />
+    <%= text_field :budget, :class => "money" %> .00
+  </p>
+  <p>
+    <%= submit "Update" %>
+  </p>
+<% end =%>
