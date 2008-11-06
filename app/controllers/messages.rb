@@ -4,13 +4,13 @@ class Messages < Application
   def create(message)
     @message = Message.new(message)
     if @message.save
-      message_to_send = @message.body
       keywords = @message.matched_keywords
-      unless keywords.empty?
-        ad = Ad.winner(keywords)
-        message_to_send = ad.message_prefix + message_to_send if ad
+      ad = Ad.winner(keywords)
+      if ad
+        ad.serve_sms(@message)
+      else
+        @message.send_sms
       end
-      Merb.logger.info("Sending: #{message_to_send}")
     else
       raise InternalServerError
     end

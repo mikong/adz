@@ -14,4 +14,14 @@ class Message
     end
     keywords
   end
+  
+  def self.send_sms(options)
+    @globe_proxy ||= Mobile::GlobeProxy.new(:username => GLOBE_API_USERNAME, :pin => GLOBE_API_PIN)
+    @globe_proxy.send_sms(:to => options[:to], :message => options[:message])
+  end
+  
+  def send_sms(options={})
+    options = {:to => receiver, :message => body}.merge(options)
+    Message.send_sms(options)
+  end
 end

@@ -20,6 +20,22 @@ class Ad
     "This message is sponsored by #{sponsor}:"
   end
   
+  def next_hit
+    self.hits = self.hits + 1
+  end
+  
+  def serve_sms(message)
+    response = message.send_sms(:message => self.message_prefix + message.body)
+    if response.valid?
+      next_hit
+      unless self.text.blank?
+        response = message.send_sms(:message => self.text) unless self.text.blank?
+        next_hit if response.valid?
+      end
+      save
+    end
+  end
+  
   def word_list
     @word_list || WordList.new(self.keywords.collect{|w| w.word}).to_s
   end
