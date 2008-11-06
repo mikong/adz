@@ -1,0 +1,27 @@
+<h1>Billing</h1>
+
+<div class="spacer"></div>
+
+<table>
+  <tr>
+    <th>Sponsor</th>
+    <th>Keywords</th>
+    <th>Custom Ad (if any)</th>
+    <th>Hits</th>
+    <th>Amount</th>
+  </tr>
+  
+<% @ads.each do |ad| %>
+  <tr>
+    <td><%=h ad.sponsor %></td>
+    <td><%=h ad.word_list %></td>
+    <td class="main"><%=h ad.text %></td>
+    <td class="numeric"><%= ad.hits %></td>
+    <td class="numeric"><%= ad.hits.to_currency(:ph) %>
+  </tr>
+<% end %>
+  <tr>
+    <td class="total-label" colspan="4">Total:</td>
+    <td class="total-amount numeric"><%= @total_amount.to_currency(:ph) %></td>
+  </tr>
+</table>

@@ -4,8 +4,10 @@ class Ad
   property :id,      Serial
   property :sponsor, String, :length => (0..24), :nullable => false
   property :text,    String, :length => (0..140)
+  property :hits,    Integer, :default => 0
   property :created_at, DateTime
   property :updated_at, DateTime
+  property :deleted_at, ParanoidDateTime
   
   belongs_to :user
   has n, :keywordings
@@ -32,7 +34,7 @@ class Ad
   #     points = no. of ads associated
   #   Ad ranking:
   #     earlier and higher matched:unmatched keywords ratio, better
-  #     points = punctuality rank + total keywords # - matched keywords + times serviced
+  #     points = punctuality rank + total keywords + previous hits # - matched keywords
   #   Note:
   #     All things being equal, randomize. (:order => 'RAND()')
   def self.winner(words)
@@ -50,7 +52,7 @@ class Ad
                            WHERE a.id = b.ad_id AND b.keyword_id = c.id
                            AND c.id = ? ORDER BY updated_at", winning_keyword_id])
     ad_pts = {}
-    ads.each_with_index {|ad,index| ad_pts[ad.id] = index + ad.keywords.count}
+    ads.each_with_index {|ad,index| ad_pts[ad.id] = index + ad.keywords.count + ad.hits}
     winning_ad_id = ad_pts.sort {|a,b| a[1]<=>b[1]}[0][0]
     get(winning_ad_id)
   end

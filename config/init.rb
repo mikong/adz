@@ -25,4 +25,6 @@ end
  
 Merb::BootLoader.after_app_loads do
   # This will get executed after your app's classes have been loaded.
+  Numeric::Transformer.formats[:ph] = { :number => { :delimiter => ",", :separator => ".", :precision => 3 },
+                                        :currency => { :unit => "Php ", :format => "%u%n", :precision => 2 } }
 end

@@ -165,6 +165,18 @@ th {
 td, th { padding: 2px 5px; }
 td input { margin-left: 0px; }
 td.main { width: 250px; }
+td.numeric { text-align: center; }
+td.total-label {
+  background-color: lightyellow;
+  border-top: 1px solid black;
+  font-weight: bold;
+  text-align: right;
+}
+td.total-amount {
+  border-top: 1px solid black;
+  color: #fff;
+  background-color: #4d9b12;
+}
 
 #login {
   margin-top: 25px;

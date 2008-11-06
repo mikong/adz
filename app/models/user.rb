@@ -35,4 +35,15 @@ class User
       [false, "Budget must be a positive number"]
     end
   end
+  
+  # returns all ads including deleted ones
+  def billable_ads
+    Ad.find_by_sql(["SELECT * FROM ads WHERE user_id = ?", self.id])
+  end
+  
+  def bill_amount
+    total_amount = 0
+    self.ads.each {|ad| total_amount += ad.hits}
+    return total_amount
+  end
 end
