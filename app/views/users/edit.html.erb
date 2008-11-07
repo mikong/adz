@@ -7,7 +7,7 @@
 <%= form_for @user, :action => url(:settings) do %>
   <p>
     <label for="user_budget_per_ad">Budget per Ad</label> <%= currency_tip %><br />
-    <%= text_field :budget_per_ad, :class => "money" %> .00
+    <%= currency_field :budget_per_ad %>
   </p>
   <p>
     <%= submit "Update" %>
