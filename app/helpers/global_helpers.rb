@@ -1,5 +1,7 @@
 module Merb
   module GlobalHelpers
-    # helpers defined here available to all views.  
+    def currency_tip
+      tag :span, '(in Php)', :class => 'tip'
+    end
   end
 end

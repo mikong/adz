@@ -28,6 +28,10 @@
     <%= text_area :text, :cols => 40 %>
   </p>
   <p>
+    <label for="ad_budget">Budget</label> <%= currency_tip %><br />
+    <%= text_field :budget, :class => "money" %> .00
+  </p>
+  <p>
     <%= submit "Update" %>
   </p>
 <% end =%>

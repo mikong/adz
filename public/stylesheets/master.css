@@ -164,7 +164,7 @@ th {
 }
 td, th { padding: 2px 5px; }
 td input { margin-left: 0px; }
-td.main { width: 250px; }
+th.long-text { width: 250px;}
 td.numeric { text-align: center; }
 td.total-label {
   background-color: lightyellow;
@@ -251,12 +251,11 @@ div.sms-preview {
 	margin: 15px auto;
 }
 
-input.money {
-	width: 80px;
-	text-align: right;
-}
+.money {text-align: right;}
+input.money {width: 80px;}
 
 span.tip {
   font-size: 13px;
+  font-weight: normal;
   color: gray;
 }

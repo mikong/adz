@@ -6,22 +6,24 @@
   <tr>
     <th>Sponsor</th>
     <th>Keywords</th>
-    <th>Custom Ad (if any)</th>
+    <th class="long-text">Custom Ad</th>
+    <th>Budget<br /><%= currency_tip %></th>
     <th>Hits</th>
-    <th>Amount</th>
+    <th>Charges<br /><%= currency_tip %></th>
   </tr>
   
 <% @ads.each do |ad| %>
   <tr>
     <td><%=h ad.sponsor %></td>
     <td><%=h ad.word_list %></td>
-    <td class="main"><%=h ad.text %></td>
+    <td><%=h ad.text %></td>
+    <td class="money"><%= ad.budget.to_currency(:ph, :unit => "") %></td>
     <td class="numeric"><%= ad.hits %></td>
-    <td class="numeric"><%= ad.hits.to_currency(:ph) %>
+    <td class="money"><%= ad.hits.to_currency(:ph, :unit => "") %>
   </tr>
 <% end %>
   <tr>
-    <td class="total-label" colspan="4">Total:</td>
-    <td class="total-amount numeric"><%= @total_amount.to_currency(:ph) %></td>
+    <td class="total-label" colspan="5">Total Amount:</td>
+    <td class="total-amount money"><%= @total_amount.to_currency(:ph) %></td>
   </tr>
 </table>

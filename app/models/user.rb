@@ -16,7 +16,7 @@ class User
   property :created_at, DateTime
   property :updated_at, DateTime
   
-  property :budget, Integer, :default => 0
+  property :budget_per_ad, Integer, :default => 0
   
   has n, :ads
   
@@ -24,15 +24,15 @@ class User
   validates_is_unique    :login
   validates_length       :password,             :within => 4..40, :if => :password_required?
   
-  validates_is_number    :budget
-  validates_with_method  :check_budget
+  validates_is_number    :budget_per_ad
+  validates_with_method  :validate_budget_per_ad
   
-  def check_budget
-    return true if self.budget.nil?
-    if self.budget >= 0
+  def validate_budget_per_ad
+    return true if self.budget_per_ad.nil?
+    if self.budget_per_ad >= 0
       return true
     else
-      [false, "Budget must be a positive number"]
+      [false, "Budget per Ad must be a positive number"]
     end
   end
   

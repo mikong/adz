@@ -18,6 +18,10 @@
   <% end %>
 </p>
 
+<p>
+  Budget: <b><%= @ad.budget.to_currency(:ph) %></b>
+</p>
+
 <div class="spacer"></div>
 
 <%= link_to 'Edit', url(:edit_ad, @ad) %> | <%= link_to 'Back to list', url(:ads) %>

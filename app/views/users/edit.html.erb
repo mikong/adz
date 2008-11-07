@@ -6,8 +6,8 @@
 
 <%= form_for @user, :action => url(:settings) do %>
   <p>
-    <label for="user_budget">Budget</label> <span class="tip">(in Philippine Pesos)</span><br />
-    <%= text_field :budget, :class => "money" %> .00
+    <label for="user_budget_per_ad">Budget per Ad</label> <%= currency_tip %><br />
+    <%= text_field :budget_per_ad, :class => "money" %> .00
   </p>
   <p>
     <%= submit "Update" %>
