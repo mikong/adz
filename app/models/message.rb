@@ -17,7 +17,9 @@ class Message
   
   def self.send_sms(options)
     @globe_proxy ||= Mobile::GlobeProxy.new(:username => GLOBE_API_USERNAME, :pin => GLOBE_API_PIN)
-    @globe_proxy.send_sms(:to => options[:to], :message => options[:message])
+    response = @globe_proxy.send_sms(:to => options[:to], :message => options[:message])
+    Merb.logger.warning("Send SMS Failed:\n#{options[:message]}") unless response.valid?
+    return response
   end
   
   def send_sms(options={})

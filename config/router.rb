@@ -88,6 +88,12 @@ Merb::Router.prepare do
       if xml_params[:msg].match(/^\d{11}/)
         {:controller => "messages", :action => "create",
           :message => { :body => $', :receiver => $& }}
+      elsif xml_params[:msg].match(/^STOP/i)
+        {:controller => "subscribers", :action => "stop",
+          :msisdn => xml_params[:source]}
+      elsif xml_params[:msg].match(/^ALLOW/i)
+        {:controller => "subscribers", :action => "allow",
+          :msisdn => xml_params[:source]}
       else
         {:controller => "exceptions", :action => "not_found"}
       end

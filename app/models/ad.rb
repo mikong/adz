@@ -53,6 +53,14 @@ class Ad
     response = message.send_sms(:message => self.message_prefix + message.body)
     if response.valid?
       next_hit
+      
+      msisdn = message.receiver
+      subscriber = Subscriber.first(:msisdn => msisdn)
+      unless subscriber
+        response = Message.send_sms(:to => msisdn, :message => MSG_NEW_SUBSCRIBER_INTRO)
+        Subscriber.create(:msisdn => msisdn) if response.valid?
+      end
+      
       unless self.text.blank? || (self.hits >= self.budget)
         response = message.send_sms(:message => self.text)
         next_hit if response.valid?

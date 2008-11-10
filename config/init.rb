@@ -23,6 +23,12 @@ Merb::BootLoader.before_app_loads do
   # This will get executed after dependencies have been loaded but before your app's classes have loaded.
   GLOBE_API_USERNAME = 'pvuuze'
   GLOBE_API_PIN = 'bKBCdnWuf0'
+  GLOBE_SERVICE_NO = '23730244'
+  MSG_HOW_TO_STOP = "Send 'STOP' to #{GLOBE_SERVICE_NO} to stop receiving sponsored messages."
+  MSG_HOW_TO_ALLOW = "Send 'ALLOW' to #{GLOBE_SERVICE_NO} to allow receiving sponsored messages."
+  MSG_NEW_SUBSCRIBER_INTRO = "#{GLOBE_SERVICE_NO} is an Ad service used by someone who sent you a message. #{MSG_HOW_TO_STOP}"
+  MSG_STOPPED = "You will no longer receive sponsored messages. #{MSG_HOW_TO_ALLOW}"
+  MSG_ALLOWED = "You can now receive sponsored messages. #{MSG_HOW_TO_STOP}"
 end
  
 Merb::BootLoader.after_app_loads do
