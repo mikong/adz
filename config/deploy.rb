@@ -2,7 +2,7 @@ set :application, "adz"
 set :domain,      "67.207.133.106"
 set :user,        "mikong"
 set :repository,  "ssh://git@67.207.133.106:2049/var/git/#{application}.git"
-# set :use_sudo,    false
+set :use_sudo,    false
 set :deploy_to,   "/var/www/#{application}"
 set :scm,         "git"
 set :branch,      "master"
@@ -15,6 +15,11 @@ namespace :deploy do
   desc "Tell Passenger to restart the app."
   task :restart, :roles => :app do
     run "touch #{current_path}/tmp/restart.txt"
+  end
+  
+  desc "Prepare tmp folder for Passenger"
+  task :prepare_tmp do
+    run "mkdir #{release_path}/tmp"
   end
   
   desc "Symlink shared configs and folders on each release"
@@ -30,4 +35,5 @@ namespace :deploy do
   end
 end
 
+after 'deploy:update_code', 'deploy:prepare_tmp'
 after 'deploy:update_code', 'deploy:symlink_shared'
