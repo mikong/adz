@@ -48,35 +48,7 @@ Merb::Router.prepare do
   
   # Callback URL for Globe
   match('/globe').defer_to do |request, params|
-    xml_string = "<?xml version=\"1.0\" encoding=\"utf-8\"?>
-                    <message>
-                      <param>
-                        <name>messageType</name>
-                        <value>SMS</value>
-                      </param>
-                      <param>
-                        <name>id</name>
-                        <value>001</value>
-                      </param>
-                      <param>
-                        <name>source</name>
-                        <value>09179699677</value>
-                      </param>
-                      <param>
-                        <name>target</name>
-                        <value>23730244</value>
-                      </param>
-                      <param>
-                        <name>msg</name>
-                        <value>09179699677 Ok</value>
-                      </param>
-                      <param>
-                        <name>udh</name>
-                        <value></value>
-                      </param>
-                    </message>"
-    # doc = Hpricot.XML(request.raw_post)
-    doc = Hpricot.XML(xml_string)
+    doc = Hpricot.XML(request.raw_post)
     xml_params = {}
     (doc/:param).each do |xml_param|
       xml_params[((xml_param/:name).inner_html).to_sym] = (xml_param/:value).innerHTML
