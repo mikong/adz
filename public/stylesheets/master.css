@@ -117,6 +117,15 @@ a:hover {
   font-size: 12px;
   font-family: Verdana, Arial, sans-serif;
 }
+#footer {
+  font-size: 12px;
+  text-align: center;
+  padding: 8px 0;
+}
+#footer li {
+  display: inline;
+  padding: 0 8px;
+}
 .right {
   float: right;
   font-size: 100%;
