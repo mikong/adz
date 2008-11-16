@@ -36,3 +36,28 @@ function sms_preview_sponsor() {
   update_sponsor_func();
   sponsor_input.change(update_sponsor_func);
 }
+
+// link_to '(delete)', resource(ad), :class => 'delete'
+function prepare_delete_links() {
+  $('.delete').click(function () {
+    var answer = confirm("Are you sure?");
+    if (answer) {
+      var f = document.createElement('form');
+      f.style.display = 'none';
+      this.parentNode.appendChild(f);
+      f.method = 'POST';
+      f.action = this.href;
+      addHiddenElement(f, '_method', 'delete');
+      f.submit();
+    }
+    return false;
+  });
+}
+
+function addHiddenElement(aForm, aName, aValue) {
+  hiddenElem = document.createElement('input');
+  hiddenElem.setAttribute('type', 'hidden');
+  hiddenElem.setAttribute('name', '_method');
+  hiddenElem.setAttribute('value', 'delete');
+  aForm.appendChild(hiddenElem);
+}
