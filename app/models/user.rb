@@ -16,7 +16,7 @@ class User
   property :created_at, DateTime
   property :updated_at, DateTime
   
-  property :budget_per_ad, Integer, :default => 0
+  property :budget_per_ad, Integer, :default => 1000
   
   has n, :ads
   
