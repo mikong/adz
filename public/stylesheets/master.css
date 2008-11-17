@@ -27,14 +27,14 @@ html {
   margin-left: 6px;
   margin-bottom: 6px;
 }
-#header { margin-top: -20px; height: 140px; }
+#header { margin-top: -20px; height: 90px; }
 #header a {
 	color: white;
 }
 #logo {
-	background: url(/images/Crystal_Clear_app_internet.png) no-repeat;
-	height: 128px;
-	width: 128px;
+	background: url(/images/logo.png) no-repeat;
+	height: 79px;
+	width: 288px;
 	display: block;
 	float: left;
 }
@@ -239,7 +239,7 @@ a.join, a:hover.join {
 #navcontainer ul {
 	padding-left: 0;
 	margin-left: 0;
-	margin-top: 99px;
+	margin-top: 49px;
 	text-align: right;
 }
 #navcontainer ul li {
