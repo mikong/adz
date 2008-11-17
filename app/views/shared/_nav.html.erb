@@ -1,7 +1,6 @@
 <% if session.authenticated? %>
 <div id="navcontainer">
   <ul>
-    <li id="nav_home"><%= link_to "Home", '/' %></li>
     <li id="nav_ads"><%= link_to "Ads", url(:ads) %></li>
     <li id="nav_keyword_tool"><%= link_to "Keyword Tool", url(:keyword_tool) %></li>
     <li id="nav_billing"><%= link_to "Billing", url(:billing) %></li>
