@@ -168,26 +168,34 @@ textarea {
   padding-left: 2px;
 }
 
-table { border: 1px solid black; margin-left: 20px; }
+table {
+  margin-left: 20px;
+  width: 95%;
+  border-collapse: collapse;
+}
 th {
   text-align: center;
-  background-color: lightyellow;
-  border-bottom: 2px solid gray;
+  color: #0066cc;
 }
-td, th { padding: 2px 5px; }
+td, th { padding: 8px; }
 td input { margin-left: 0px; }
-th.long-text { width: 250px;}
 td.numeric { text-align: center; }
+td a.sponsor {
+  font-weight: bold;
+  color: #3399ff;
+}
 td.total-label {
-  background-color: lightyellow;
-  border-top: 1px solid black;
+  border-top: 2px solid #0066cc;
+  font-size: 18px;
   font-weight: bold;
   text-align: right;
+  color: #0066cc;
 }
 td.total-amount {
-  border-top: 1px solid black;
+  border-top: 2px solid #0066cc;
+  font-size: 18px;
   color: #fff;
-  background-color: #4d9b12;
+  background-color: red;
 }
 
 #login {
@@ -301,14 +309,16 @@ div.li_ad_header {
   background-color: #3399ff;
 }
 
-div.odd {
-  background-color: #e0dfea; /* daffff e0dfea */
-}
-
-a.sponsor {
+div.li_ad_header a.sponsor {
   font-size: 20px;
   color: white;
   font-weight: bold;
   float: left;
   padding-left: 4px;
 }
+
+.odd {
+  background-color: #e0dfea; /* daffff e0dfea */
+}
+
+.padded60 { padding-right: 60px; }
