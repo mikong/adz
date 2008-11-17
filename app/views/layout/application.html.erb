@@ -20,7 +20,6 @@
         &nbsp;
         <%= partial 'shared/nav' %>
       </div>
-      <hr />
       <div id="content">
         <% message.each do |key, msg| -%>
           <%= tag :div, msg, :id => "msg_#{key}", :class => key %>
