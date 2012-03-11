@@ -1,0 +1,43 @@
+First:
+Followed Getting Started with Your New Ubuntu Slice until Rails.
+
+Next:
+sudo apt-get install apache2
+sudo apt-get install mysql-server mysql-client
+sudo gem install mongrel
+  installed 5 gems: gem_plugin-0.2.3, daemons-1.0.9, fastthread-1.0.1, cgi_multipart_eof_fix-2.5.0, mongrel-1.1.3
+sudo apt-get install git-core
+
+July 31, 2008:
+sudo gem update --system
+sudo apt-get update
+to update apache2 and mysql: sudo apt-get upgrade
+to update mongrel:
+  sudo gem update
+  sudo gem cleanup
+install merb, datamapper, rspec:
+  sudo gem install rspec
+  sudo gem install data_objects dm-core
+    # also installed addressable, english, extlib, facets
+  sudo gem install do_mysql
+    # install libmysqlclient15-dev according to DataMapper mailing list
+  sudo apt-get install libmysqlclient15-dev
+    # installed dependency zlib1g-dev
+  sudo gem install do_mysql
+    # works!
+  sudo gem install merb merb_helpers
+    # installed a bunch of other gems like parsetree, ruby2ruby, json_pure, erubis, mime-types, hpricot, rubigen, mailfactory
+  sudo gem install merb_datamapper
+    # also installed dm-migrations-0.9.3
+  sudo gem install twitter4r
+    # also installed json-1.1.3
+TODO:
+phusion passenger
+globe api gem
+
+October 28, 2008:
+sudo gem update --system
+  # got error
+sudo gem install rubygems-update
+sudo update_rubygems
+sudo gem install merb
